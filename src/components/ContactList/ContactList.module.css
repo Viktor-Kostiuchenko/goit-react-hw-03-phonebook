@@ -1,0 +1,33 @@
+.total {
+  margin-bottom: 20px;
+}
+.amount {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+}
+
+@media screen and (min-width: 720px) {
+  .amount {
+    border: 1px solid #ff524b;
+    color: #ff524b;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000;
+}

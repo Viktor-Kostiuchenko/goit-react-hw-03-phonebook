@@ -1,0 +1,15 @@
+.link {
+  display: block;
+  position: absolute;
+  top: 10px;
+}
+
+.logo {
+  width: 100px;
+}
+
+@media screen and (min-width: 720px) {
+  .link {
+    left: 60px;
+  }
+}

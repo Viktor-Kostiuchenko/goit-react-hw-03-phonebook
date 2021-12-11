@@ -1,0 +1,81 @@
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.input {
+  border: 1px solid #9b9b9b;
+  padding: 5px;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 720px) {
+  .input {
+    width: 200px;
+  }
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input ~ .focusBorder:before,
+.input ~ .focusBorder:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  transition: 0.2s;
+  transition-delay: 0.2s;
+}
+.input ~ .focusBorder:after {
+  top: auto;
+  bottom: 0;
+  right: auto;
+  left: 0;
+  transition-delay: 0.6s;
+}
+.input ~ .focusBorder i:before,
+.input ~ .focusBorder i:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background-color: #000;
+  transition: 0.2s;
+}
+.input ~ .focusBorder i:after {
+  left: auto;
+  right: 0;
+  top: auto;
+  bottom: 0;
+  transition-delay: 0.4s;
+}
+.input:focus ~ .focusBorder:before,
+.input:focus ~ .focusBorder:after {
+  width: 100%;
+  transition: 0.2s;
+  transition-delay: 0.6s;
+}
+.input:focus ~ .focusBorder:after {
+  transition-delay: 0.2s;
+}
+.input:focus ~ .focusBorder i:before,
+.input:focus ~ .focusBorder i:after {
+  height: 100%;
+  transition: 0.2s;
+}
+.input:focus ~ .focusBorder i:after {
+  transition-delay: 0.4s;
+}

@@ -1,0 +1,17 @@
+.section:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 720px) {
+  .section {
+    width: 400px;
+  }
+  .section:not(:last-child) {
+    margin-bottom: unset;
+  }
+}
+
+.title {
+  margin-bottom: 30px;
+  font-size: 32px;
+}

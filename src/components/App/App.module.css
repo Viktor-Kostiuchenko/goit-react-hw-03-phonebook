@@ -1,0 +1,33 @@
+.container {
+  position: relative;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  padding-top: 80px;
+  min-height: 640px;
+  box-sizing: border-box;
+  width: 320px;
+}
+
+@media screen and (min-width: 440px) {
+  .container {
+    width: 440px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .container {
+    display: flex;
+    justify-content: right;
+    width: 720px;
+    padding: 60px;
+    padding-top: 80px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 1024px;
+  }
+}
