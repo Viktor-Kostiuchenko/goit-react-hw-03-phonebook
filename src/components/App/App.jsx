@@ -20,8 +20,10 @@ export default class App extends Component {
     filter: '',
   };
 
+  #localStorageKey = 'contacts';
+
   componentDidMount() {
-    const contacts = localStorage.getItem('contacts');
+    const contacts = localStorage.getItem(this.#localStorageKey);
     const parsedContacts = JSON.parse(contacts);
 
     if (parsedContacts) {
@@ -34,28 +36,27 @@ export default class App extends Component {
     const prevContacts = prevState.contacts;
 
     if (updatedContacts !== prevContacts) {
-      localStorage.setItem('contacts', JSON.stringify(updatedContacts));
+      localStorage.setItem(
+        this.#localStorageKey,
+        JSON.stringify(updatedContacts),
+      );
     }
   }
 
   addContact = ({ name, number }) => {
     const { contacts } = this.state;
-    const newContact = { id: nanoid(), name, number };
-    const nameDublicate = contacts.find(
-      contact => contact.name === newContact.name,
-    );
-    const numberDublicate = contacts.find(
-      contact => contact.number === newContact.number,
-    );
+    const nameDublicate = contacts.find(contact => contact.name === name);
+    const numberDublicate = contacts.find(contact => contact.number === number);
 
     if (nameDublicate) {
-      notificate(newContact.name);
+      notificate(name);
       return;
     } else if (numberDublicate) {
-      notificate(newContact.number);
+      notificate(number);
       return;
     }
 
+    const newContact = { id: nanoid(), name, number };
     this.setState(({ contacts }) => ({
       contacts: [newContact, ...contacts],
     }));
@@ -89,17 +90,17 @@ export default class App extends Component {
 
     return (
       <div className={s.container}>
-        <Logo></Logo>
+        <Logo />
         <Section title="Phonebook">
-          <ContactForm onSubmit={addContact}></ContactForm>
+          <ContactForm onSubmit={addContact} />
         </Section>
 
         <Section title="Contacts">
-          <Filter value={filter} onChange={filterByName}></Filter>
+          <Filter value={filter} onChange={filterByName} />
           <ContactList
             contacts={filteredContacts}
             onDeleteContact={deleteContact}
-          ></ContactList>
+          />
         </Section>
       </div>
     );
